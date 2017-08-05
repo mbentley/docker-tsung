@@ -1,13 +1,11 @@
 mbentley/tsung
-==================
+==============
 
 docker image for tsung
-Based off of stackbrew/debian:jessie
+Based off of alpine:3.6
 
 To pull this image:
 `docker pull mbentley/tsung`
 
 Example usage:
 `docker run -it mbentley/tsung`
-
-By default, you will be dropped into a bash shell.

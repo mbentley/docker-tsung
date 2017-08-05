@@ -1,7 +1,8 @@
-FROM debian:jessie
+FROM alpine:3.6
 MAINTAINER Matt Bentley <mbentley@mbentley.net>
-RUN (echo "deb http://http.debian.net/debian/ jessie main contrib non-free" > /etc/apt/sources.list && echo "deb http://http.debian.net/debian/ jessie-updates main contrib non-free" >> /etc/apt/sources.list && echo "deb http://security.debian.org/ jessie/updates main contrib non-free" >> /etc/apt/sources.list)
-RUN apt-get update
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y tsung vim
-CMD ["/bin/bash"]
+RUN echo '@testing http://nl.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories &&\
+  apk --no-cache add tsung@testing
+
+ENTRYPOINT ["tsung"]
+CMD ["-h"]
